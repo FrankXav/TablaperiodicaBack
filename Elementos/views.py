@@ -87,6 +87,36 @@ class ElementoListFilter(generics.ListAPIView):
     filterset_fields = ['Nombre','Simbolo', 'No_Atomico','Categoria', 'Grupo', 'Periodo', "Masa_Atomica", "Densidad"]
 
 
+class CategoriaCreate(generics.CreateAPIView):
+    serializer_class = CategoriaSerializer
 
+    def post(self,request):
+        serializer = self.serializer_class(data = request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message':'Categoria creada'}, status = status.HTTP_200_OK)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
     
+class GrupoCreate(generics.CreateAPIView):
+    serializer_class = GrupoSerializer
+
+    def post(self,request):
+        serializer = self.serializer_class(data = request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message':'Grupo creado'}, status = status.HTTP_200_OK)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+
+class PeriodoCreate(generics.CreateAPIView):
+    serializer_class = PeriodoSerializer
+
+    def post(self,request):
+        serializer = self.serializer_class(data = request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message':'Periodo creado'}, status = status.HTTP_200_OK)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
