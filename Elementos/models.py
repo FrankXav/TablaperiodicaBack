@@ -36,7 +36,7 @@ class elemento(models.Model):
     periodo = models.ForeignKey(periodo, on_delete=models.CASCADE, blank=False, null=False)
     grupo = models.ForeignKey(grupo, on_delete=models.CASCADE, blank=False, null=False)
     masa_atomica = models.FloatField(blank=False, null=False)
-    densidad = models.FloatField(blank=False, null=False)
+    densidad = models.FloatField(blank=True, null=True)
     categoria = models.ForeignKey(categoria, on_delete=models.CASCADE, blank=False, null=False)
     creado_por = models.ForeignKey(user, on_delete=models.CASCADE, blank=True, null=True)
     informacion = models.CharField(max_length=500, blank=True, null=True)
