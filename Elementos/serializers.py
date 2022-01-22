@@ -38,15 +38,15 @@ class ElementoSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         return {
             'id':instance.id,
-            'Nombre': instance.nombre,
-            'Simbolo': instance.simbolo,
-            'No_Atomico': instance.no_atomico,
-            'Periodo': instance.periodo.no_periodo,
-            'Grupo': instance.grupo.no_grupo,
-            'Masa_Atomica': instance.masa_atomica,
-            'Densidad': instance.densidad,
-            'Categoria': instance.categoria.categoria,
+            'nombre': instance.nombre,
+            'simbolo': instance.simbolo,
+            'no_atomico': instance.no_atomico,
+            'periodo': instance.periodo.no_periodo,
+            'grupo': instance.grupo.no_grupo,
+            'masa_atomica': instance.masa_atomica,
+            'densidad': instance.densidad,
+            'categoria': instance.categoria.categoria,
             #'Creado_por': instance.Creado_por.Nickname,
-            'Informacion': instance.informacion
+            'informacion': instance.informacion
 
         }

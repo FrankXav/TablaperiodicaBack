@@ -34,46 +34,46 @@ class ElementoCreate(generics.CreateAPIView):
 
 class ElementoDetail(generics.RetrieveAPIView):
     serializer_class = ElementoSerializer
-    lookup_field = 'Nombre'
+    lookup_field = 'nombre'
     
     def get_queryset(self):
-        Nombre = self.kwargs['Nombre']
-        return elemento.objects.filter(Nombre=Nombre)
+        nombre = self.kwargs['nombre']
+        return elemento.objects.filter(nombre=nombre)
 
 class ElementoDelete(generics.DestroyAPIView):
     serializer_class = ElementoSerializer
-    lookup_field = 'Nombre'
+    lookup_field = 'nombre'
     
     def get_queryset(self):
-        Nombre = self.kwargs['Nombre']
-        return elemento.objects.filter(Nombre=Nombre)
+        nombre = self.kwargs['nombre']
+        return elemento.objects.filter(nombre=nombre)
 
-    def delete(self, request, Nombre=None):
+    def delete(self, request, nombre=None):
         Elemento = self.get_queryset()
         if Elemento:
-            self.destroy(request, Nombre)
+            self.destroy(request, nombre)
             return Response({'message':'Elemento Eliminado'}, status=status.HTTP_200_OK)
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class ElementoUpdate(generics.UpdateAPIView):
     serializer_class = ElementoSerializer
-    lookup_field = 'Nombre'
+    lookup_field = 'nombre'
 
-    def get_queryset(self, Nombre):
-        Nombre = self.kwargs['Nombre']
-        return elemento.objects.filter(Nombre=Nombre).first()
+    def get_queryset(self, nombre):
+        nombre = self.kwargs['nombre']
+        return elemento.objects.filter(nombre=nombre).first()
 
-    def patch(self, request, Nombre=None):
-        elemento = self.get_queryset(Nombre)
+    def patch(self, request, nombre=None):
+        elemento = self.get_queryset(nombre)
         if elemento:
             elemento_serializer = self.serializer_class(elemento)
             return Response(data=elemento_serializer.data, status=status.HTTP_200_OK)
         return Response({'message':'No existe producto'}, status = status.HTTP_400_BAD_REQUEST)
 
-    def put(self, request, Nombre=None):
-        if self.get_queryset(Nombre):
-            Elemento_serializer =self.serializer_class(self.get_queryset(Nombre),data = request.data)
+    def put(self, request, nombre=None):
+        if self.get_queryset(nombre):
+            Elemento_serializer =self.serializer_class(self.get_queryset(nombre),data = request.data)
             if Elemento_serializer.is_valid():
                 Elemento_serializer.save()
                 return Response(Elemento_serializer.data, status=status.HTTP_200_OK)
@@ -84,7 +84,7 @@ class ElementoListFilter(generics.ListAPIView):
     queryset = elemento.objects.all()
     serializer_class = ElementoSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['Nombre','Simbolo', 'No_Atomico','Categoria', 'Grupo', 'Periodo', "Masa_Atomica", "Densidad"]
+    filterset_fields = ['nombre','simbolo', 'no_atomico','categoria', 'grupo', 'periodo', "masa_atomica", "densidad"]
 
 
 class CategoriaCreate(generics.CreateAPIView):
