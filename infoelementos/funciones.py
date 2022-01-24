@@ -1,5 +1,5 @@
-from informacion import LiEle
-
+import clase
+from informacion import LiEle, Periodo
 
 ListaElementos=LiEle()
 
@@ -7,6 +7,8 @@ ListaElementos=LiEle()
 nom = []"""
 
 for i in ListaElementos:
+
+
 
     i.CorNombre()
 
@@ -16,7 +18,7 @@ for i in ListaElementos:
 
     i.CorInformacion()
 
-    i.CorCategoria()
+    #i.CorCategoria()
 
     """if i.Categoria not in cat:
                     cat.append(i.Categoria)
@@ -32,17 +34,7 @@ print(nom)"""
     i.Imprimir_Info()"""
 
 for i in ListaElementos:
-    print(f'Elemento {i.Nombre}')
-    print('{')
-    print(f'    "nombre": "{i.Nombre}",')
-    print(f'    "simbolo": "{i.Simbolo}",')
-    print(f'    "no_atomico": {i.Numero_Atomico},')
-    print(f'    "masa_atomica": {i.Masa_Atomica},')
-    print(f'    "densidad": {i.Densidad},')
-    print(f'    "informacion": "{i.Informacion}",')
-    print(f'    "periodo": {i.Periodo},')
-    print(f'    "grupo": {i.Grupo},')
-    print(f'    "categoria": {i.Categoria}')
-    print('}')
+	i.printcss()
+
 
 

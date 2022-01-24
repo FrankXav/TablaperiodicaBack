@@ -2,12 +2,16 @@ from rest_framework import filters
 from rest_framework import generics, status
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
+from django.shortcuts import render
 
 from Elementos.models import elemento 
 
 from .serializers import *
 
 # Create your views here.
+
+def index(request):
+    return render(request, 'index.html')
 
 class CategoriaList(generics.ListAPIView):
     serializer_class = CategoriaSerializer
