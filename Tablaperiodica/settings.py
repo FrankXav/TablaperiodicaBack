@@ -146,7 +146,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-STATIC_URL = 'static/'
+""" STATIC_URL = 'static/' """
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
@@ -161,4 +161,4 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+""" STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' """

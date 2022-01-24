@@ -4,6 +4,7 @@ from .views import *
 
 urlpatterns = [
     path('', index),
+    path('detail/', detail),
     path('list/', ElementosList.as_view()),
     path('create/', ElementoCreate.as_view()),
     re_path('^detail/(?P<nombre>.+)/$', ElementoDetail.as_view()),

@@ -13,6 +13,9 @@ from .serializers import *
 def index(request):
     return render(request, 'index.html')
 
+def detail(request):
+    return render(request, 'detail.html')
+
 class CategoriaList(generics.ListAPIView):
     serializer_class = CategoriaSerializer
     

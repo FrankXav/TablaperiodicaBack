@@ -4,7 +4,7 @@ const myinfo = response.json()  */
 let relemento, elemento, conteiner, elementoConteiner, numeros, letraElemento, na, ma, nombre
 
 const imagen = async (nomele) => {
-    link = 'https://tabalperiodicafrank.herokuapp.com/detail/' + nomele
+    link = '/detail/' + nomele
     relemento = await fetch(link)
     elemento = await relemento.json()
     conteiner = document.getElementById('imagenh')
@@ -48,7 +48,7 @@ const imagen = async (nomele) => {
 }
 
 const info = async () => {
-    const response = await fetch('https://tabalperiodicafrank.herokuapp.com/list/');
+    const response = await fetch('/list/');
     const myinfo = await response.json()
     myinfo.forEach(element =>{
         conteiner = document.getElementById(element.nombre)
@@ -75,7 +75,7 @@ const info = async () => {
 }
 
 const categorias = async () => {
-    const response = await fetch('https://tabalperiodicafrank.herokuapp.com/categoria/');
+    const response = await fetch('/categoria/');
     const myinfo = await response.json()
     myinfo.forEach(element =>{
         console.log(element.categoria.replace(/ /g, ""))
@@ -123,7 +123,7 @@ const categorias = async () => {
 }
 
 const plantilla = (nomele) =>{
-    let ruta = 'elemento/detail.html' + '?' + nomele
+    let ruta = 'detail' + '?' + nomele
     window.location = ruta
 }
 

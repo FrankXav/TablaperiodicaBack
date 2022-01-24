@@ -32,10 +32,10 @@ body {
     "potasio calcio escandio titanio vanadio cromo manganeso hierro cobalto niquel cobre zinc galio germanio arsenico selenio bromo kriptón"
     "rubidio estroncio itrio zirconio niobio molibdeno tecnecio rutenio rodio paladio plata cadmio indio estaño antimonio teluro yodo xenón"
     "cesio bario lutecio hafnio tantalio volframio renio osmio iridio platino oro mercurio talio plomo bismuto polonio astato radón"
-    "francio radio actinio rutherfordio dubnio seaborgio bohrio hassio meitnerio darmstatio roentgenio copernicio nihonio flerevio moscovio livermorio teneso oganesón"
+    "francio radio laurencio rutherfordio dubnio seaborgio bohrio hassio meitnerio darmstatio roentgenio copernicio nihonio flerevio moscovio livermorio teneso oganesón"
     "separacion separacion separacion separacion separacion separacion separacion separacion separacion separacion separacion separacion separacion separacion separacion separacion separacion separacion"
     "blank2 blank2 latano cerio praseodimio neodimio prometio samario europio gadolinio terbio disprocio holmio erbio tulio iterbio blank3 blank3"
-    "blank2 blank2 laurencio torio protactinio uranio neptunio plutonio americio curio berquelio californio einstenio fermio mendelevio nobelio blank3 blank3";
+    "blank2 blank2 actinio torio protactinio uranio neptunio plutonio americio curio berquelio californio einstenio fermio mendelevio nobelio blank3 blank3";
     grid-template-columns: repeat(18, 90px);
     grid-template-rows: repeat(7, 90px) 40px 90px 90px ;
 }
@@ -902,10 +902,9 @@ body {
  
 .Actinio {
     grid-area: actinio;
-    background-color: rgb(3, 131, 190);
+    background-color: rgb(150, 205, 219);
     padding: 0;
     margin: 3px;
-    color: white;
 }
  
 .Torio {
@@ -1001,7 +1000,8 @@ body {
 
 .Laurencio {
     grid-area: laurencio;
-    background-color: rgb(150, 205, 219);
+    background-color: rgb(3, 131, 190);
+    color: white;
     padding: 0;
     margin: 3px;
 }
@@ -1636,8 +1636,9 @@ body {
     cursor: pointer;
 }
 .Laurencio:hover {
-    background-color: rgb(200, 250, 247);
+    background-color: rgb(180, 219, 238);
     cursor: pointer;
+    color: black;
 }
 .Rutherfordio:hover {
     background-color: rgb(180, 219, 238);
