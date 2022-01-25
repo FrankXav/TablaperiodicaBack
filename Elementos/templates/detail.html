@@ -6,12 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link href="{% static 'css/detail.css' %}" type="text/css" rel="stylesheet"/>
-    <title>Document</title>
+    <title>Elemento</title>
 </head>
 <body>
     <div class="contenedor" id="contenedor">
         <div class="Titulo">Tabla Periodica</div>
-        <div class="table"></div>
+        <div class="table">
+            <div class="info" id="info">
+                <div class="titulosN">Nombre:  </div><div class="Nombre" id ="Nombre"></div>
+                <div class="titulosS">Simbolo:  </div><div class="Simbolo" id="Simbolo"></div>
+                <div class="titulosNa">Numero Atomico:  </div><div class="NoAtomico" id="NoAtomico"></div>
+                <div class="titulosP">Periodo:  </div><div class="Periodo" id="Periodo"></div>
+                <div class="titulosG">Grupo:  </div><div class="Grupo" id="Grupo"></div>
+                <div class="titulosMa">Masa Atomica:  </div><div class="MasaAtomica" id="MasaAtomica"></div>
+                <div class="titulosD">Densidad:  </div><div class="Densidad" id="Densidad"></div>
+                <div class="titulosC">Categoria:  </div><div class="Categoria" id="Categoria"></div>
+            </div>
+            <div class="imagen" id="imagen">
+                <div class="cuadro" id="cuadro">
+                    <div class="Sim" id ="Sim"></div>
+                    <div class="Name" id ="Name"></div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="informacion" id="informacion">
+                
+        </div>
     </div>
 </body>
 {% load static %}
