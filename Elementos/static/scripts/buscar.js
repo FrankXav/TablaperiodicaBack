@@ -99,7 +99,7 @@ const Listadep = async (orden) =>{
     contlist.innerHTML = ""
     switch (orden) {
         case "1":
-            let link = 'https://tabalperiodicafrank.herokuapp.com/list/'
+            link = 'https://tabalperiodicafrank.herokuapp.com/list/noatomico/'
             listare = await fetch(link)
             lista = await listare.json()
             lista.forEach(element => {
@@ -120,9 +120,107 @@ const Listadep = async (orden) =>{
                 contlist.appendChild(renglon)
             });
             break;
+            
+        case '21':
+            link = 'https://tabalperiodicafrank.herokuapp.com/list/asc/'
+            listare = await fetch(link)
+            lista = await listare.json()
+            lista.forEach(element => {
+                renglon = document.createElement('div')
+                renglon.classList.add('renglon')
+                nombre = document.createElement('div')
+                nombre.classList.add('nombre')
+                nombre.innerHTML = element.nombre
+                simbolo = document.createElement('div')
+                simbolo.classList.add('simbolo')
+                simbolo.innerHTML = element.simbolo
+                no_ato = document.createElement('div')
+                no_ato.classList.add('no_ato')
+                no_ato.innerHTML = element.no_atomico
+                renglon.appendChild(nombre)
+                renglon.appendChild(simbolo)
+                renglon.appendChild(no_ato)
+                contlist.appendChild(renglon)
+            });
+            break;
+        case '22':
+            link = 'https://tabalperiodicafrank.herokuapp.com/list/desc/'
+            listare = await fetch(link)
+            lista = await listare.json()
+            lista.forEach(element => {
+                renglon = document.createElement('div')
+                renglon.classList.add('renglon')
+                nombre = document.createElement('div')
+                nombre.classList.add('nombre')
+                nombre.innerHTML = element.nombre
+                simbolo = document.createElement('div')
+                simbolo.classList.add('simbolo')
+                simbolo.innerHTML = element.simbolo
+                no_ato = document.createElement('div')
+                no_ato.classList.add('no_ato')
+                no_ato.innerHTML = element.no_atomico
+                renglon.appendChild(nombre)
+                renglon.appendChild(simbolo)
+                renglon.appendChild(no_ato)
+                contlist.appendChild(renglon)
+            });
+            break;
+        
+        case '3':
+            link = 'https://tabalperiodicafrank.herokuapp.com/categoria/'
+            listare = await fetch(link)
+            lista = await listare.json()
+            lista.forEach(element => {
+                cat = element.categoria
+                catid = element.id
+                Listesp(cat, catid)
+            }) 
+            break;
+        case '4':
+            link = 'https://tabalperiodicafrank.herokuapp.com/grupo/'
+            listare = await fetch(link)
+            lista = await listare.json()
+            lista.forEach(element => {
+                cat = element.categoria
+                catid = element.id
+                Listesp(cat, catid)
+            })
+            break;
     }
 }
 
+const Listesp = async (categoria, id) =>{
+    /* contlist = document.getElementById('Lista')
+    titulolist = createElement('div')
+    titulo.classList.add('titulolist')
+    titulo.innerHTML = categoria */
+    link = 'https://tabalperiodicafrank.herokuapp.com/filter/?categoria=' + id
+    elmentosre = await fetch(link)
+    elementos = await elmentosre.json()
+    contlist = document.getElementById('Lista')
+    titulo = document.createElement('div')
+    titulo.classList.add('titulolist')
+    titulo.innerHTML = categoria
+    contlist.appendChild(titulo)
+    elementos.forEach(element =>{
+        renglon = document.createElement('div')
+        renglon.classList.add('renglon')
+        nombre = document.createElement('div')
+        nombre.classList.add('nombre')
+        nombre.innerHTML = element.nombre
+        simbolo = document.createElement('div')
+        simbolo.classList.add('simbolo')
+        simbolo.innerHTML = element.simbolo
+        no_ato = document.createElement('div')
+        no_ato.classList.add('no_ato')
+        no_ato.innerHTML = element.no_atomico
+        renglon.appendChild(nombre)
+        renglon.appendChild(simbolo)
+        renglon.appendChild(no_ato)
+        contlist.appendChild(renglon)
+    })
+    console.log(elementos)
+} 
 
 Lista()
 

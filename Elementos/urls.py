@@ -16,7 +16,9 @@ urlpatterns = [
     re_path('^update/(?P<nombre>.+)/$', ElementoUpdate.as_view()),
     path('categoria/', CategoriaList.as_view()),
     path('filter/', ElementoListFilter.as_view()),
-    path('categoria/create/', CategoriaCreate.as_view()),
-    path('periodo/create/', PeriodoCreate.as_view()),
-    path('grupo/create/', GrupoCreate.as_view())
+    #path('categoria/create/', CategoriaCreate.as_view()),
+    #path('periodo/create/', PeriodoCreate.as_view()),
+    #path('grupo/create/', GrupoCreate.as_view()),
+    path('grupo/', ListGrupo.as_view()),
+    path('periodo/', ListPeriodo.as_view()),
 ]
