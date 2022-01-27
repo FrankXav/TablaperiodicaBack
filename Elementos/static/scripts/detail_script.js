@@ -42,6 +42,7 @@ const info = async () => {
     cuadro = document.getElementById('cuadro')
     if (element.categoria == 'Gases Nobles'){
         cuadro.style.backgroundColor = 'rgb(7, 59, 0)';
+        cuadro.style.color = 'white'
     }
     else if (element.categoria == 'Metales de transición'){
         cuadro.style.backgroundColor = 'rgb(3, 131, 190)';
@@ -58,22 +59,29 @@ const info = async () => {
     }
     else if (element.categoria == 'Metales Alcalinos'){
         cuadro.style.backgroundColor = 'rgb(0, 0, 90)';
+        cuadro.style.color = 'white'
     }
     else if (element.categoria == 'Metaloides'){
         cuadro.style.backgroundColor = 'rgb(207, 0, 69)';
+        cuadro.style.color = 'white'
     }
     else if (element.categoria == 'Lantanidos'){
         cuadro.style.backgroundColor = 'rgb(219, 215, 150)';
     }
     else if (element.categoria == 'Metales'){
         cuadro.style.backgroundColor = 'rgb(98, 0, 122)';
+        cuadro.style.color = 'white'
     }
     else if (element.categoria == 'Actinido'){
         cuadro.style.backgroundColor = 'rgb(150, 205, 219)';
     }
     informacion = document.getElementById('informacion')
     informacion.innerHTML = element.informacion
+}
 
+function RegresarMain() {
+    let ruta = '/'
+    window.location = ruta
 }
 
 info()

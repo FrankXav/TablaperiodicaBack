@@ -4,8 +4,12 @@ from .views import *
 
 urlpatterns = [
     path('', index),
+    path('buscar/', buscar),
     path('detail/', detail),
     path('list/', ElementosList.as_view()),
+    path('list/asc/', ListOrdenAsc().as_view()),
+    path('list/desc/', ListOrdenDesc().as_view()),
+    path('list/noatomico/', ListNoAtomico().as_view()),
     path('create/', ElementoCreate.as_view()),
     re_path('^detail/(?P<nombre>.+)/$', ElementoDetail.as_view()),
     re_path('^delete/(?P<nombre>.+)/$', ElementoDelete.as_view()),

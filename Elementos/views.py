@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from django.shortcuts import render
 
-from Elementos.models import elemento 
+from Elementos.models import elemento, grupo
 
 from .serializers import *
 
@@ -15,6 +15,9 @@ def index(request):
 
 def detail(request):
     return render(request, 'detail.html')
+
+def buscar(request):
+    return render(request, 'buscar.html')
 
 class CategoriaList(generics.ListAPIView):
     serializer_class = CategoriaSerializer
@@ -127,3 +130,53 @@ class PeriodoCreate(generics.CreateAPIView):
             serializer.save()
             return Response({'message':'Periodo creado'}, status = status.HTTP_200_OK)
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+
+
+class ListOrdenAsc(generics.ListAPIView):
+    serializer_class = ElementoSerializer
+
+    def get_queryset(self):
+        ListNombre = []
+        ElementosOrdenados = []
+        elementos = elemento.objects.all()
+        for i in elementos:
+            ListNombre.append(i.nombre)
+        ListNombre.sort()
+        for i in ListNombre:
+            for j in elementos:
+                if j.nombre == i:
+                    ElementosOrdenados.append(j)
+        return ElementosOrdenados
+
+class ListOrdenDesc(generics.ListAPIView):
+    serializer_class = ElementoSerializer
+
+    def get_queryset(self):
+        ListNombre = []
+        ElementosOrdenados = []
+        elementos = elemento.objects.all()
+        for i in elementos:
+            ListNombre.append(i.nombre)
+        ListNombre.sort(reverse = True)
+        for i in ListNombre:
+            for j in elementos:
+                if j.nombre == i:
+                    ElementosOrdenados.append(j)
+        return ElementosOrdenados
+
+class ListNoAtomico(generics.ListAPIView):
+    serializer_class = ElementoSerializer
+
+    def get_queryset(self):
+        ListNAtomico = []
+        ElementosOrdenados = []
+        elementos = elemento.objects.all()
+        for i in elementos:
+            ListNAtomico.append(i.no_atomico)
+        ListNAtomico.sort()
+        for i in ListNAtomico:
+            for j in elementos:
+                if j.no_atomico == i:
+                    ElementosOrdenados.append(j)
+        return ElementosOrdenados
+
