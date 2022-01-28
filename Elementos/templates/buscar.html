@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- {% load static %} -->
-    <link href="../static/css/buscar.css" type="text/css" rel="stylesheet"/> <!-- {% static 'css/buscar.css' %} -->
+    {% load static %}
+    <link href="{% static 'css/buscar.css' %}" type="text/css" rel="stylesheet"/> <!-- {% static 'css/buscar.css' %} -->
     <title>Buscar Elemento</title>
 </head>
 <body>
@@ -17,21 +17,24 @@
             <button class="boton_buscar" id="boton_buscar" onclick="BuscarElemento()"> Buscar </button>
         </div>
         <!-- <div class="ContList"></div> -->
-        <div class="TipoLista" >
-            <h2>Ordenar por</h2>
-            <div class="SeleccionarTL" id = "SeleccionarTL">
-                <select id="OpcionesL" onchange="Lista()">
-                    <option value="1">Numero Atomico</option>
-                    <option value="2">Nombre</option>
-                    <option value="3">Categoria</option>
-                    <option value="4">Grupo</option>
-                    <option value="5">Periodo</option>
-                </select>
+        <div class="Seperador"></div>
+        <div class="ContList" id="ContList">
+            <div class="TipoLista">
+                <h2>Ordenar por: </h2>
+                <div class="SeleccionarTL" id = "SeleccionarTL">
+                    <select id="OpcionesL" class="OpcionesL" onchange="Lista()">
+                        <option value="1">Numero Atomico</option>
+                        <option value="2">Nombre</option>
+                        <option value="3">Categoria</option>
+                        <option value="4">Grupo</option>
+                        <option value="5">Periodo</option>
+                    </select>
+                </div>
             </div>
-        </div>
         <div class="Lista" id="Lista"></div>
     </div>
+    </div>
 </body>
-<!-- {% load static %} -->
-<script src="../static/scripts/buscar.js"></script>  <!-- {% static '/scripts/buscar.js' %} -->
+{% load static %}
+<script src="{% static '/scripts/buscar.js' %}"></script>  <!-- {% static '/scripts/buscar.js' %} -->
 </html>
